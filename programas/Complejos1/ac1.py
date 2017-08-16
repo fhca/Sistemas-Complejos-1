@@ -39,7 +39,7 @@ def genera_ac(mx, my, inicio="central"):
     ax = fig.add_subplot(111)
     E = numpy.zeros((mx, my, 256), dtype=numpy.bool_)
     if inicio == "central":
-        E[0, my / 2, :] = 1  # 1 central
+        E[0, int(my / 2), :] = 1  # 1 central
     elif inicio[0] in ['0','1']:
         my = len(inicio)
         E = numpy.zeros((mx, my, 256), dtype=numpy.bool_)
