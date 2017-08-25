@@ -11,7 +11,7 @@ fig = plt.figure()
 ax = fig.add_subplot(111)
 
 N=1000  # N x N square window, (resolution)
-C = np.linspace(3.54, 3.58, N)
+C = np.linspace(0, 4, N)
 Y = np.array([0.5] * N)
 for _ in range(500):
     Y = logistic(C, Y)  # wasted initial values
