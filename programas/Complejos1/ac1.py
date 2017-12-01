@@ -1,6 +1,6 @@
 __author__ = 'fhca'
 
-""" Genera una matriz 3D de los 256 autómatas celulares elementales, navegables con scroll. """
+""" Genera una matriz 3D de los 256 automatas celulares elementales, navegables con scroll. """
 
 import numpy
 from matplotlib.pyplot import figure, show
@@ -34,7 +34,7 @@ def f(x, y, z, regla):
     return regla & (1 << (x << 2 | y << 1 | z))
 
 
-def genera_ac(mx, my, inicio="central"):
+def genera_ac(mx, my, inicio="azar"):
     fig = figure()
     ax = fig.add_subplot(111)
     E = numpy.zeros((mx, my, 256), dtype=numpy.bool_)
@@ -46,7 +46,7 @@ def genera_ac(mx, my, inicio="central"):
         for r in range(256):
             E[0, :, r] = numpy.array(list(inicio))
     else:
-        E[0, :, :] = numpy.round(numpy.random.rand(1, my, 256))  # renglón aleatorio
+        E[0, :, :] = numpy.round(numpy.random.rand(1, my, 256))  # renglon aleatorio
     for r in range(256):
         for i in range(1, mx):
             for j in range(1, my - 1):
@@ -57,7 +57,7 @@ def genera_ac(mx, my, inicio="central"):
     fig.canvas.mpl_connect("scroll_event", ac.onscroll)
     show()
 
-genera_ac(300, 100, "central")
-#genera_ac(20, 100, "1000110110001101")
+#genera_ac(300, 100, "central")
+genera_ac(200, 100 )
 
 #interesantes: 30,54,60,62,90,94,102,110,122,126,150,158,182,188,190,220,222,250
